@@ -344,3 +344,16 @@ span{
     font-size: 16px;
     font-weight:  1px;
 }
+
+.con-text{
+    text-align: center;
+}
+
+.con-text h1{
+    font-family: 'Dosis', sans-serif;
+    font-size: var(--h1-font);
+    color: var(--text-color);
+    font-weight: 800;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
