@@ -240,8 +240,15 @@ span{
     transform: translateY(-8px);
     border: 1px solid #4e5055;
 }
-
-
+ .s-btnn:where{
+    vertical-align: top;
+    align-items: baseline;
+    width: auto;
+ }
+ .aboutP{
+    width: auto;
+    white-space: 23p
+ }
 
 /*<-----------------------------Portfolio Area Start--------------------------------->*/
 .portfolio{
@@ -322,7 +329,16 @@ span{
     gap: 2.3rem;
     margin-top: 4.2rem;
 
+}
 
+.text-center{
+    color: #000;
+    position: relative;
+    align-self:  calc(sans-serif);
+    stroke-width: 0%;
+    width: 23pc;
+    background-color: var(--other-color
+    );
 }
 .timeline-items::before{
     content: '';
@@ -697,5 +713,8 @@ span{
     .hero-text h4{
         font-size: 16px;
         word-spacing: 7px;
+    }
+    .s-btnn{
+        sa
     }
 }
