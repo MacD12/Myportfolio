@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Night Rider</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/normalize/8.0.1_normalize.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css">
+    <style>
+        main {
+            width: 100%;
+            height: 100vh;
+        }
+
+        .container-main {
+            width: 85%;
+            height: 7%;
+        }
+
+        .container-header {
+            width: 85%;
+        }
+
+        .container-footer {
+            width: 85%;
+            bottom: 30vh;
+        }
+
+        #separator {
+            height: 2em;
+        }
+
+        .ride-element {
+            width: calc(100% / 6);
+            height: 100%;
+        }
+
+        #speed-range {
+            width: 100%;
+        }
+
+        .content h2, .content h2 {
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <main class="d-flex flex-column justify-content-center align-items-center position-relative">
+        <div class="container-header position-absolute top-0">
+            <div class="content">
+                <h2>Speed:</h2>
+                <h2 id="speedText" class="h2">50</h2>
+            </div>
+            <div id="separator"></div>
+            <div class="content">
+                <h2>Wait:</h2>
+                <h2 id="timeText" class="h2">2000</h2>
+            </div>
+        </div>
+        <div class="container-main d-flex bg-light">
+            <div class="ride-element border border-2 border-black border-end-0"></div>
+            <div class="ride-element border border-2 border-black border-end-0"></div>
+            <div class="ride-element border border-2 border-black border-end-0"></div>
+            <div class="ride-element border border-2 border-black border-end-0"></div>
+            <div class="ride-element border border-2 border-black border-end-0"></div>
+            <div class="ride-element border border-2 border-black"></div>
+        </div>
+        <div class="container-footer position-absolute justify-content-center">
+            <button id="startButton" type="button" class="btn btn-success btn-lg">Start</button>
+            <button id="stopButton" type="button" class="btn btn-danger ms-1 btn-lg">Stop</button>
+            <div id="speed-range" class="ms-5">
+                <input type="range" class="form-range" id="speedSlider" min="50" max="150" value="50">
+            </div>
+        </div>
+        <audio id="audio" src="assets/knightrider.mp3" loop></audio>
+    </main>
+    <script src="assets/bootstrap/js/bootstrap.js"></script>
+    <script>
+        const rideElements = document.querySelectorAll(".ride-element");
+        const startBtn = document.getElementById("startButton");
+        const stopBtn = document.getElementById("stopButton");
+        const audio = document.getElementById("audio");
+        const speedRangeInput = document.getElementById('speedSlider');
+        const speedText = document.getElementById('speedText');
+        const timeText = document.getElementById('timeText');
+
+        let colorsRight = ["#960000", "#ec0000", "#eaadaa", "#fff"];
+        let colorsLeft = ["#960000", "#ec0000", "#eaaaaa", "#fff"];
+        let setColorRight = [];
+        let setColorLeft = [];
+
+        let interval;
+        let rightInterval;
+        let leftInterval;
+
+        let count = 0;
+        let animateTime = 50;
+        let waitTime = 2000;
+        let root = true;
+        let animationTime;
+
+        function setLeft() {
+            clearInterval(leftInterval);
+            leftInterval = setInterval(function () {
+                setColorLeft.unshift(colorsLeft[count]);
+
+                for (let i = 0; i < 6; i++) {
+                    rideElements[5 - i].style.backgroundColor = setColorLeft[i];
+                }
+
+                count++;
+            }, animateTime);
+            clearInterval(rightInterval);
+            setColorLeft = [];
+            count = 0;
+        }
+
+        function setRight() {
+            clearInterval(rightInterval);
+            rightInterval = setInterval(function () {
+                setColorRight.unshift(colorsRight[count]);
+                for (let i = 0; i < 6; i++) {
+                    rideElements[i].style.backgroundColor = setColorRight[i];
+                }
+                count++;
+            }, animateTime);
+            clearInterval(leftInterval);
+            setColorRight = [];
+            count = 0;
+        }
+
+        function animate() {
+            if (root) {
+                setRight();
+                root = false;
+            } else {
+                setLeft();
+                root = true;
+            }
+        }
+
+        startBtn.addEventListener('click', function () {
+            updateValues();
+            audio.play();
+        });
+
+        function updateValues() {
+            animateTime = speedRangeInput.value;
+            waitTime = animateTime * 40;
+
+            speedText.textContent = speedRangeInput.value;
+            timeText.textContent = waitTime;
+            startAnimation();
+        }
+
+        function startAnimation() {
+            clearInterval(interval);
+            animationTime = (150 - speedRangeInput.value) * 10;
+            interval = setInterval(animate, animationTime);
+        }
+
+        stopBtn.addEventListener('click', function () {
+            clearInterval(interval);
+            audio.pause();
+        });
+
+        speedRangeInput.addEventListener('input', updateValues);
+    </script>
+</body>
+</html>
