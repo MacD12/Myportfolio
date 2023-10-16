@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="/assets/normalize.css">
+  <title>My Invoice Page</title>
+
+  <style>
+    .custom-scroll-card {
+      max-height: 400px;
+      overflow-y: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg bg-light" data-bs-theme="dark" style="background-color: #e3f2fd;">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">My POS System</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/home.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/order.html">Orders</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/item.html">Items</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/customer.html">Customers</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/invoice.html">Invoice</a>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <section class="container mt-5">
+    <h1 style="text-align: center;">My Invoice</h1>
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+        <div class="card custom-scroll-card">
+          <div class="card-header bg-primary text-white">
+            Order Details
+          </div>
+          <div class="card-body">
+            <form>
+              <div class="mb-3">
+                <label for="orderId" class="form-label">Order ID</label>
+                <input type="text" class="form-control" id="orderId">
+              </div>
+              <div class="mb-3">
+                <label for="orderDate" class="form-label">Order Date</label>
+                <input type="text" class="form-control" id="orderDate">
+              </div>
+              <div class="mb-3">
+                <label for="customerId" class="form-label">Customer ID</label>
+                <input type="text" class="form-control" id="customerId">
+              </div>
+              <div class="mb-3">
+                <label for="customerName" class="form-label">Customer Name</label>
+                <input type="text" class="form-control" id="customerName">
+              </div>
+              <div class="mb-3">
+                <label for="customerSalary" class="form-label">Customer Salary</label>
+                <input type="text" class="form-control" id="customerSalary">
+              </div>
+              <div class="mb-3">
+                <label for="customerAddress" class="form-label">Customer Address</label>
+                <input type="text" class="form-control" id="customerAddress">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+        <div class="card custom-scroll-card">
+          <div class="card-header bg-primary text-white">
+            Item Details
+          </div>
+          <div class="card-body">
+            <form>
+              <div class="mb-3">
+                <label for="itemCode" class="form-label">Item Code</label>
+                <input type="text" class="form-control" id="itemCode">
+              </div>
+              <div class="mb-3">
+                <label for "itemName" class="form-label">Item Name</label>
+                <input type="text" class="form-control" id="itemName">
+              </div>
+              <div class="mb-3">
+                <label for="itemPrice" class="form-label">Item Price</label>
+                <input type="text" class="form-control" id="itemPrice">
+              </div>
+              <div class="mb-3">
+                <label for="qtyOnHand" class="form-label">Qty On Hand</label>
+                <input type="text" class="form-control" id="qtyOnHand">
+              </div>
+              <div class="mb-3">
+                <label for="qty" class="form-label">Quantity</label>
+                <input type="text" class="form-control" id="qty">
+              </div>
+              <div class="mb-3">
+                <label for="qtyAfter" class="form-label">Qty After</label>
+                <input type="text" class="form-control" id="qtyAfter">
+              </div>
+              <button type="button" class="btn btn-success">Add Item</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+        <div class="card custom-scroll-card">
+          <div class="card-header bg-primary text-white">
+            Payment Details
+          </div>
+          <div class="card-body">
+            <form>
+              <div class="mb-3">
+                <label for="cash" class="form-label">Cash</label>
+                <input type="text" class="form-control" id="cash">
+              </div>
+              <div class="mb-3">
+                <label for="discount" class="form-label">Discount</label>
+                <input type="text" class="form-control" id="discount">
+              </div>
+              <div class="mb-3">
+                <label for="balance" class="form-label">Balance</label>
+                <input type="text" class="form-control" id="balance">
+              </div>
+              <div class="mb-3">
+                <label for="totalPrice" class="form-label">Total Price</label>
+                <input type="text" class="form-control" id="totalPrice" disabled>
+              </div>
+              <button type="button" class="btn btn-primary">Purchase</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-12">
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <thead class="table-primary">
+              <tr>
+                <th scope="col">Item Code</th>
+                <th scope="col">Item Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Total</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+
+</html>

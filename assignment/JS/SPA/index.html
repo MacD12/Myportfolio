@@ -8,10 +8,11 @@
     <link rel="stylesheet" href="../../CSS_Framework/POS/assets/bootstrap/css/bootstrap.css">
     <title>Dashboard</title>
     <style>
-        .scrollable-card {
+        .card-reduced-height {
             max-height: 400px;
             overflow-y: auto;
         }
+
 
         .btn-custom {
             background-color: #007BFF;
@@ -28,7 +29,7 @@
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark" style="background-color: #e3f2fd;">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Your POS System</a>
+                <a class="navbar-brand" href="#">Deshan's POS System</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -42,11 +43,12 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#" data-section="orders">Orders</a>
                         </li>
+
                         <li class="nav-item">
                             <a class="nav-link" href="#" data-section="items">Items</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#" data-section="customers">Customers</a>
+                            <a class="nav-link" href="#" data-section="customers">Customer</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#" data-section="invoice">Invoice</a>
@@ -125,7 +127,8 @@
                                     <th scope="col">Actions</th>
                                 </tr>
                             </thead>
-                            <tbody id="orderTable">
+                            <tbody id="tb5">
+  
                             </tbody>
                         </table>
                     </div>
@@ -136,53 +139,62 @@
         <div class="section" id="items" style="display: none;">
             <h1 style="text-align: center;">Item Management</h1>
             <div class="row">
+
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                     <div class="table-responsive">
                         <table class="table table-bordered">
                             <thead class="table-primary">
                                 <tr>
+                                    
                                     <th scope="col">Item Code</th>
                                     <th scope="col">Item Name</th>
                                     <th scope="col">Price</th>
                                     <th scope="col">Quantity</th>
                                 </tr>
                             </thead>
-                            <tbody id="itemTable">
+                            <tbody id="tb2">
+
                             </tbody>
                         </table>
                     </div>
                 </div>
+
+
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" placeholder="Search...">
                         <button class="btn btn-custom" type="button">Search</button>
                     </div>
-                    <div class="card scrollable-card">
+
+
+                    <div class="card card-reduced-height">
                         <div class="card-header bg-primary text-white">
-                            Add an Item
+                            Add a Item
                         </div>
                         <div class="card-body">
+
                             <form>
                                 <div class="mb-3">
-                                    <label for="itemCode" class="form-label">Item Code</label>
-                                    <input type="text" class="form-control" id="newItemCode">
+                                    <label for="customerName" class="form-label">Item Code</label>
+                                    <input type="text" class="form-control" id="itemCode">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="itemName" class="form-label">Item Name</label>
-                                    <input type="text" class="form-control" id="newItemName">
+                                    <label for="customerTP" class="form-label">Item Name</label>
+                                    <input type="text" class="form-control" id="itemName">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="itemPrice" class="form-label">Price</label>
-                                    <input type="text" class="form-control" id="newItemPrice">
+                                    <label for="customerAge" class="form-label">Price</label>
+                                    <input type="text" class="form-control" id="price">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="itemQuantity" class="form-label">Quantity</label>
-                                    <input type="text" class="form-control" id="newItemQuantity">
+                                    <label for="customerSalary" class="form-label">Quantity</label>
+                                    <input type="text" class="form-control" id="quantity">
                                 </div>
-                                <button type="button" class="btn btn-success" id="addItemButton">Add Item</button>
-                                <button type="button" class="btn btn-warning" id="updateItemButton">Update</button>
-                                <button type="button" class="btn btn-danger" id="deleteItemButton">Delete</button>
-                                <button type="button" class="btn btn-danger" id="clearItemFieldsButton">Clear Fields</button>
+                                <button type="button" class="btn btn-success" id="addButtonItem">Add Item</button>
+                                <button type="button" class="btn btn-warning" id="updateButtonItem">Update</button>
+                                <button type="button" class="btn btn-danger" id="deleteButtonItem">Delete</button>
+                                <button type="button" class="btn btn-danger" id="clearButtonItem">Clear Fields</button>
                             </form>
                         </div>
                     </div>
@@ -193,9 +205,10 @@
         <div class="section" id="customers" style="display: none;">
             <h1 style="text-align: center;">Customer Management</h1>
             <div class="row">
+
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                     <div class="table-responsive">
-                        <table class="table table-bordered" id="customerTable">
+                        <table class="table table-bordered" id="cusTable">
                             <thead class="table-primary">
                                 <tr>
                                     <th scope="col">Customer Id</th>
@@ -205,46 +218,53 @@
                                     <th scope="col">Salary</th>
                                 </tr>
                             </thead>
-                            <tbody id="customerTableBody">
+                            <tbody id="tb">
+
                             </tbody>
                         </table>
                     </div>
                 </div>
+
+
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" placeholder="Search...">
                         <button class="btn btn-custom" type="button">Search</button>
                     </div>
-                    <div class="card scrollable-card">
+
+
+                    <div class="card card-reduced-height">
                         <div class="card-header bg-primary text-white">
                             Add a Customer
                         </div>
                         <div class="card-body">
+
                             <form>
                                 <div class="mb-3">
                                     <label for="customerId" class="form-label">Customer Id</label>
-                                    <input type="text" class="form-control" id="newCustomerId">
+                                    <input type="text" class="form-control" id="cId">
                                 </div>
                                 <div class="mb-3">
                                     <label for="customerName" class="form-label">Customer Name</label>
-                                    <input type="text" class="form-control" id="newCustomerName">
+                                    <input type="text" class="form-control" id="cName">
                                 </div>
                                 <div class="mb-3">
                                     <label for="customerTP" class="form-label">TP</label>
-                                    <input type="text" class="form-control" id="newCustomerTP">
+                                    <input type="text" class="form-control" id="cTP">
                                 </div>
                                 <div class="mb-3">
                                     <label for="customerAge" class="form-label">Age</label>
-                                    <input type="text" class="form-control" id="newCustomerAge">
+                                    <input type="text" class="form-control" id="cAge">
                                 </div>
                                 <div class="mb-3">
                                     <label for="customerSalary" class="form-label">Salary</label>
-                                    <input type="text" class="form-control" id="newCustomerSalary">
+                                    <input type="text" class="form-control" id="cSalary">
                                 </div>
-                                <button type="button" class="btn btn-success" id="addCustomerButton">Add Customer</button>
-                                <button type="button" class="btn btn-warning" id="updateCustomerButton">Update</button>
-                                <button type="button" class="btn btn-danger" id="deleteCustomerButton">Delete</button>
-                                <button type="button" class="btn btn-danger" id="clearCustomerFieldsButton">Clear All</button>
+                                <button type="button" class="btn btn-success" id="saveButtonCustomer" >Add Customer</button>
+                                <button type="button" class="btn btn-warning" id="updateButtonCustomer">Update</button>
+                                <button type="button" class="btn btn-danger" id="deleteButtonCustomer">Delete</button>
+                                <button type="button" class="btn btn-danger" id="clearButtonCustomer">Clear All</button>
                             </form>
                         </div>
                     </div>
@@ -256,7 +276,7 @@
             <h1 style="text-align: center;">Invoice</h1>
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
-                    <div class="card scrollable-card">
+                    <div class="card card-reduced-height">
                         <div class="card-header bg-primary text-white">
                             Order Details
                         </div>
@@ -272,16 +292,17 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="customerId" class="form-label">Customer ID</label>
-                                    <select class="form-control" id="selectCustomerId">
-                                    </select>
+                                    <select class="form-control" id="selectCusID">
+
+                                    </select>                                
                                 </div>
                                 <div class="mb-3">
                                     <label for="customerName" class="form-label">Customer Name</label>
-                                    <input type="text" class="form-control" id="selectedCustomerName" readonly>
+                                    <input type="text" class="form-control" id="customerName">
                                 </div>
                                 <div class="mb-3">
                                     <label for="customerSalary" class="form-label">Salary</label>
-                                    <input type="text" class="form-control" id="selectedCustomerSalary" readonly>
+                                    <input type="text" class="form-control" id="customerSalary">
                                 </div>
                                 <div class="mb-3">
                                     <label for="customerAddress" class="form-label">Address</label>
@@ -291,8 +312,9 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
-                    <div class="card scrollable-card">
+                    <div class="card card-reduced-height">
                         <div class="card-header bg-primary text-white">
                             Item Details
                         </div>
@@ -301,15 +323,16 @@
                                 <div class="mb-3">
                                     <label for="itemCode" class="form-label">Item Code</label>
                                     <select class="form-control" id="selectItemCode">
-                                    </select>
+
+                                    </select> 
                                 </div>
                                 <div class="mb-3">
                                     <label for="itemName" class="form-label">Item Name</label>
-                                    <input type="text" class="form-control" id="selectedItemName" readonly>
+                                    <input type="text" class="form-control" id="itemName2">
                                 </div>
                                 <div class="mb-3">
                                     <label for="itemPrice" class="form-label">Price</label>
-                                    <input type="text" class="form-control" id="selectedItemPrice" readonly>
+                                    <input type="text" class="form-control" id="itemPrice2">
                                 </div>
                                 <div class="mb-3">
                                     <label for="qtyOnHand" class="form-label">Qty On Hand</label>
@@ -323,13 +346,14 @@
                                     <label for="qtyAfter" class="form-label">Qty After</label>
                                     <input type="text" class="form-control" id="qtyAfter">
                                 </div>
-                                <button type="button" class="btn btn-success" id="addItemButton">Add Item</button>
+                                <button type="button" class="btn btn-success" id="addItemButton2">Add Item</button>
                             </form>
                         </div>
                     </div>
                 </div>
+
                 <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
-                    <div class="card scrollable-card">
+                    <div class="card card-reduced-height">
                         <div class="card-header bg-primary text-white">
                             Payment Details
                         </div>
@@ -357,6 +381,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="row mt-4">
                 <div class="col-12">
                     <div class="table-responsive">
@@ -370,7 +395,7 @@
                                     <th scope="col">Total</th>
                                 </tr>
                             </thead>
-                            <tbody id="invoiceTable">
+                            <tbody id="tb3">
                             </tbody>
                         </table>
                     </div>
@@ -379,7 +404,48 @@
         </div>
     </section>
     <script>
-        // JavaScript code remains the same
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            function hideAllSections() {
+                const sections = document.querySelectorAll(".section");
+                sections.forEach((section) => {
+                    section.style.display = "none";
+                });
+            }
+
+            function showSection(sectionId) {
+                const selectedSection = document.getElementById(sectionId);
+                if (selectedSection) {
+                    selectedSection.style.display = "block";
+                }
+            }
+
+            function loadContent(sectionId) {
+                hideAllSections();
+                showSection(sectionId);
+                localStorage.setItem("lastVisitedSection", sectionId);
+            }
+
+            const lastVisitedSection = localStorage.getItem("lastVisitedSection");
+
+            if (lastVisitedSection) {
+                loadContent(lastVisitedSection);
+            } else {
+                loadContent("home");
+            }
+
+            const navLinks = document.querySelectorAll(".nav-link");
+            navLinks.forEach((navLink) => {
+                navLink.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    const sectionId = navLink.getAttribute("data-section");
+                    loadContent(sectionId);
+                });
+            });
+
+
+        });
     </script>
     <script src="../SPA/assets/JS/js/jquery-3.6.1.min.js"></script>
     <script src="../SPA/assets/JS/js/bootstrap.min.js"></script>
